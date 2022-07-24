@@ -1,0 +1,198 @@
+:root {
+    // Primary colors
+    --pale-blue: hsl(225, 100%, 94%);
+    --bright-blue: hsl(245, 75%, 52%);
+    
+    // Neutral colors
+    --very-pale-blue: hsl(225, 100%, 98%);
+    --desaturated-blue: hsl(224, 23%, 55%);
+    --dark-blue: hsl(223, 47%, 23%);
+
+    // Font family
+    --red-hat-display: 'Red Hat Display', sans-serif;
+
+    // Font size
+    --p-fs: 16px;
+
+    // Font weights
+    --fw-500: 500;
+    --fw-700: 700;
+    --fw-900: 900;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+// Default btn
+.btn {
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 0;
+    border-radius: 12px;
+}
+
+body {
+    font-family: var(--red-hat-display);
+    background: url("../images/pattern-background-desktop.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--pale-blue);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .order-summary-component {
+        width: 500px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        
+        .img-section {
+            img {
+                border-radius: 15px 15px 0 0;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .info-section {
+            
+            .info-section-container {
+                margin: 1.7em 3em 3em 3em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5em;
+
+                // "Order Summary" title
+                h1 {
+                    text-align: center;
+                    font-weight: var(--fw-900);
+                }
+    
+                p.order-desc {
+                    font-weight: var(--fw-500);
+                    color: var(--desaturated-blue);
+                    text-align: center;
+                }
+    
+                .subscription-plan {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 1.5em;
+                    background-color: var(--very-pale-blue);
+                    border-radius: 12px;
+    
+                    #subscription-plan-info {
+                        display: flex;
+                        align-items: center;
+
+                        #subscription-plan-row {
+                            margin-left: 1.3em;
+                            
+                            p#subscription-plan-row-title {
+                                font-weight: var(--fw-700);
+                            }
+
+                            p#subscription-plan-row-subtitle {
+                                color: var(--desaturated-blue);
+                            }
+                        }
+
+                        
+                    }
+
+                    a.subscription-plan-btn {
+                        color: var(--bright-blue);
+                        font-weight: var(--fw-700);
+
+                        &:hover {
+                            text-decoration: none;
+                            opacity: .7;
+                        }
+                    }
+                }
+
+                // Proceed to Payment btn
+                .payment-btn {
+                    color: #fff;
+                    background-color: var(--bright-blue);
+                    box-shadow: 0px 15px 45px 10px rgba(56,41,224,0.35);
+                    transition: opacity .2s ease-in-out; // Animation
+
+                    &:hover {
+                        opacity: .7;
+                    }
+                }
+                
+                // Cancel btn
+                .cancel-btn {
+                    color: var(--desaturated-blue);
+                    transition: color .2s ease-in-out; // Animation
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
+    
+            }
+    }
+
+    #credit {
+        margin-top: 2em;
+        text-align: center;
+
+        :first-child {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+// Mobile Responsive
+
+@media screen and (max-width: 530px) {
+    body {
+        background: url("../images/pattern-background-mobile.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: var(--pale-blue);
+    }
+
+    main > .order-summary-component {
+        width: 90%;
+
+        .info-section > .info-section-container {
+            margin: 1.5em 2.5em 2.5em 2.5em;
+        }
+    }
+}
